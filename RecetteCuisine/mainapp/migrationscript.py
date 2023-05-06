@@ -57,7 +57,7 @@ def fill_database():
                 print("- " + step.text.strip())
 
             print("\n")
-            recipe =Recipe(title=recipe_title)
+            recipe = Recipe(title=recipe_title)
             print("_-----------------------------------------------------------------------")
 
         # Increment the page
