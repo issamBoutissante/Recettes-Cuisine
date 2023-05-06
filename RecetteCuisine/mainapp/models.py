@@ -9,13 +9,13 @@ class Category(models.Model):
 
 class Recipe(models.Model):
     title = models.TextField()
-    description = models.TextField()
-    duration = models.IntegerField()
-    nbrPersons = models.IntegerField()
-    nbrCalories = models.IntegerField()
-    difficulty = models.IntegerField()
+    description = models.TextField(null=True)
+    duration = models.CharField(max_length=50)
+    nbrPersons = models.IntegerField(null=True)
+    nbrCalories = models.IntegerField(null=True)
+    difficulty = models.IntegerField(null=True)
     categories = models.ManyToManyField(Category)
-    imageUrl = models.CharField(max_length=100,null=True)
+    imageUrl = models.CharField(max_length=100 , null=True)
 
 
 class Ingredient(models.Model):
