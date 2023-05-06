@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+      <!-- Top Header Area -->
+      <div class="top-header-area">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center justify-content-between">
+            <!-- Breaking News -->
+            <div class="col-12 col-sm-6">
+              <div class="breaking-news">
+                <div id="breakingNewsTicker" class="ticker">
+                  <ul>
+                    <li><a href="#">Bonjour!</a></li>
+                    <li><a href="#">Bienvenue au recette cuisine.</a></li>
+                    <li><a href="#">Delicious!</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Social Info -->
+            <div class="col-12 col-sm-6">
+              <div class="top-social-info text-right">
+                <a href="#"
+                  ><i class="fa fa-facebook" aria-hidden="true"></i
+                ></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navbar Area -->
+      <div class="delicious-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+          <div class="container">
+            <!-- Menu -->
+            <nav
+              class="classy-navbar justify-content-between"
+              id="deliciousNav"
+            >
+              <!-- Logo -->
+              <a class="nav-brand" href="index.html"
+                ><img src="img/core-img/logo.png" alt=""
+              /></a>
+
+              <!-- Navbar Toggler -->
+              <div class="classy-navbar-toggler">
+                <span class="navbarToggler"
+                  ><span></span><span></span><span></span
+                ></span>
+              </div>
+
+              <!-- Menu -->
+              <div class="classy-menu">
+                <!-- close btn -->
+                <div class="classycloseIcon">
+                  <div class="cross-wrap">
+                    <span class="top"></span><span class="bottom"></span>
+                  </div>
+                </div>
+
+                <!-- Nav Start -->
+                <div class="classynav">
+                  <ul>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="receipe-post.html">Receipies</a></li>
+                  </ul>
+
+                <!-- Nav End -->
+              </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+     {% block content %}{% endblock %}
+     <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div
+            class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between"
+          >
+            <!-- Footer Social Info -->
+            <div class="footer-social-info text-right">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+            <!-- Footer Logo -->
+            <div class="footer-logo">
+              <a href="index.html"
+                ><img src="img/core-img/logo.png" alt=""
+              /></a>
+            </div>
+            <!-- Copywrite -->
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    {% block scripts %}
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+    {% endblock %}
+</body>
+</html>

@@ -8,38 +8,42 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
-    title = models.TextField
-    description = models.TextField
-    duration = models.IntegerField
-    nbrPersons = models.IntegerField
-    nbrCalories = models.IntegerField
-    difficulty = models.IntegerField
+    title = models.TextField()
+    description = models.TextField()
+    duration = models.IntegerField()
+    nbrPersons = models.IntegerField()
+    nbrCalories = models.IntegerField()
+    difficulty = models.IntegerField()
     categories = models.ManyToManyField(Category)
 
 
 class Ingredient(models.Model):
-    description = models.TextField
+    description = models.TextField()
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
 
 class Step(models.Model):
-    descreption = models.TextField
-    number = models.IntegerField
+    descreption = models.TextField()
+    number = models.IntegerField()
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
 
-class User(models.Model):
-    email = models.TextField
-    password = models.TextField
+
+class Client(models.Model):
+    email = models.EmailField(max_length=254, unique=True)
+    password = models.TextField()
+
+    def __str__(self):
+        return self.email
 
 
 class Comment(models.Model):
-    text = models.TextField
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    Client = models.ForeignKey(Client, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
 
 class Rating(models.Model):
-    rate = models.IntegerField
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rate = models.IntegerField()
+    Client = models.ForeignKey(Client, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
