@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from .models import Client
+from .migrationscript import fill_database
 
 # Create your views here.
 def index(request):
@@ -53,3 +54,7 @@ def login(request):
             return render(request, 'login.html', {'error_message': error_message})
     else:
         return render(request, 'login.html')
+
+
+def migrate(request):
+    fill_database()
