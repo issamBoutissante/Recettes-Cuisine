@@ -14,6 +14,19 @@ def recipeDetails(request):
      tempate = get_template('recipeDetails.html')
      return HttpResponse(tempate.render())
 
+def recipe(request):
+    recipes=Recipe.objects.all().values()
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'recipes.html',
+        {
+            'title':'Recipe',
+            'message':'Your application description page.',
+            'year':datetime.now().year,
+            'recipes':recipes
+        })
+
 def signup(request):
     if request.method == 'POST':
         email = request.POST.get('email')
