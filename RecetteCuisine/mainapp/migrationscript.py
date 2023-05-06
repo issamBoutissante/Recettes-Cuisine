@@ -36,6 +36,7 @@ def fill_database():
 
             # kanjbdo the recipe title and print it
             recipe_title = recipe_soup.find('h1', {'class': 'article__title'}).text
+            recipe_duration = recipe_soup.find('dd', {'class': 'article__detail-value'}).text
             print(recipe_title)
             # hnaya kandero extract recipe image
             recipe_image_url = recipe_soup.find('img', {'class': 'responsive-media'})['src']
@@ -57,8 +58,9 @@ def fill_database():
                 print("- " + step.text.strip())
 
             print("\n")
-            recipe = Recipe(title=recipe_title)
-            print("_-----------------------------------------------------------------------")
+            recipe = Recipe(title=recipe_title , imageUrl=recipe_image_url,duration=recipe_duration)
+            recipe.save()
+            print("saved _-----------------------------------------------------------------------")
 
         # Increment the page
         page_num += 1

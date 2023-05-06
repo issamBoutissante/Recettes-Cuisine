@@ -22,10 +22,6 @@ urlpatterns = [
     path('recipeDetails/', views.recipeDetails, name='recipeDetails'),
     path("signup/", views.signup, name="signup"),
     path("login/", views.login, name="login"),
-<<<<<<< HEAD
     path("migrate/", views.migrate, name="migrate"),
-=======
     path("recipes/", views.recipe, name="recipes"),
-    path('admin/', admin.site.urls),
->>>>>>> dc0b2c55c3a1aa10e7e789b18b3a78cfafa4359c
 ]
