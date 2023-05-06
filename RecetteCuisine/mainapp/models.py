@@ -15,6 +15,7 @@ class Recipe(models.Model):
     nbrCalories = models.IntegerField()
     difficulty = models.IntegerField()
     categories = models.ManyToManyField(Category)
+    imageUrl = models.CharField(max_length=100,null=True)
 
 
 class Ingredient(models.Model):
