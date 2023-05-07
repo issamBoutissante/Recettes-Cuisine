@@ -11,11 +11,11 @@ class Recipe(models.Model):
     title = models.TextField()
     description = models.TextField(null=True)
     duration = models.CharField(max_length=50)
-    nbrPersons = models.IntegerField(null=True)
-    nbrCalories = models.IntegerField(null=True)
-    difficulty = models.IntegerField(null=True)
+    nbrPersons = models.CharField(max_length=50, null=True)
+    nbrCalories = models.CharField(max_length=50, null=True)
+    difficulty = models.CharField(max_length=50, null=True)
     categories = models.ManyToManyField(Category)
-    imageUrl = models.CharField(max_length=100 , null=True)
+    imageUrl = models.CharField(max_length=100, null=True)
 
 
 class Ingredient(models.Model):
