@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.template.loader import get_template
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 from django.contrib import auth
 from .models import Client
 from .models import *
@@ -17,15 +18,19 @@ def recipeDetails(request):
 
 def recipe(request):
     recipes = Recipe.objects.all().values()
-    #assert isinstance(request, HttpRequest)
+    paginator = Paginator(recipes, 9)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     return render(
         request,
         'recipes.html',
         {
-            'title':'Recipe',
-            'message':'Your application description page.',
-            'recipes':recipes
+            'title': 'Recipe',
+            'message': 'Your application description page.',
+            "page_obj": page_obj,
+            "recipes": recipes
         })
+
 
 def signup(request):
     if request.method == 'POST':

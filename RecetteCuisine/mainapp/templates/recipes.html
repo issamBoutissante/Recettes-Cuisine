@@ -5,7 +5,7 @@
     <section class="small-receipe-area section-padding-80-0">
       <div class="container">
         <div class="row">
-           {% for recipe in recipes %}
+           {% for recipe in page_obj %}
           <!-- Small Receipe Area -->
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="single-small-receipe-area d-flex">
@@ -28,5 +28,24 @@
         </div>
       </div>
     </section>
+    <div class="text-xs-center">
+      <div class="pagination text-center">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+      </div>
+    </div>
     <!-- ##### Small Receipe Area End ##### -->
 {% endblock %}
