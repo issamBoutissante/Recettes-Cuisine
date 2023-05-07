@@ -5,7 +5,7 @@
     <section class="small-receipe-area section-padding-80-0">
       <div class="container">
         <div class="row">
-           {% for recipe in recipes%}
+           {% for recipe in recipes %}
           <!-- Small Receipe Area -->
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="single-small-receipe-area d-flex">
@@ -19,14 +19,6 @@
                   <h5>{{ recipe.title }}</h5>
                 </a>
                 <div class="ratings">
-
-                 {% for i in range(1, 6) %}
-                    {% if i <= recipe.rating %}
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                    {% else %}
-                      <i class="fa fa-star-o" aria-hidden="true"></i>
-                    {% endif %}
-                 {% endfor %}
                 </div>
                 <p> Calories : {{ recipe.nbrCalories }}</p>
               </div>

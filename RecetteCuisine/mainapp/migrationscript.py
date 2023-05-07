@@ -36,10 +36,11 @@ def fill_database():
 
             # kanjbdo the recipe title and print it
             recipe_title = recipe_soup.find('h1', {'class': 'article__title'}).text
-            recipe_duration = recipe_soup.find('dd', {'class': 'article__detail-value'}).text
+            recipe_duration =recipe_soup.find('dd', {'class': 'article__detail-value'}).text
             print(recipe_title)
             # hnaya kandero extract recipe image
-            recipe_image_url = recipe_soup.find('img', {'class': 'responsive-media'})['src']
+            recipe_image_url = recipe_soup.find('div', {'class': 'article__summary'}).find('img', {'class': 'responsive-media'})['src']
+            print(recipe_image_url)
             print("Image URL:", recipe_image_url)
             # hnaya data explemple nbr people ola time dyal recipe
             recipe_data = recipe_soup.find('dl', {'class':'article__data'}).findAll('div')

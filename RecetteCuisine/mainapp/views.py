@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from .models import Client
+from .models import *
 from .migrationscript import fill_database
 
 # Create your views here.
@@ -15,15 +16,14 @@ def recipeDetails(request):
      return HttpResponse(tempate.render())
 
 def recipe(request):
-    recipes=Recipe.objects.all().values()
-    assert isinstance(request, HttpRequest)
+    recipes = Recipe.objects.all().values()
+    #assert isinstance(request, HttpRequest)
     return render(
         request,
         'recipes.html',
         {
             'title':'Recipe',
             'message':'Your application description page.',
-            'year':datetime.now().year,
             'recipes':recipes
         })
 
